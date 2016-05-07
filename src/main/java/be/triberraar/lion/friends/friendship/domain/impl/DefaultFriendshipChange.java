@@ -1,6 +1,6 @@
 package be.triberraar.lion.friends.friendship.domain.impl;
 
-import java.util.Set;
+import java.util.Optional;
 
 import be.triberraar.lion.friends.animal.domain.api.Animal;
 import be.triberraar.lion.friends.friendship.domain.api.FriendshipChange;
@@ -8,13 +8,13 @@ import be.triberraar.lion.friends.friendship.domain.api.FriendshipChange;
 public class DefaultFriendshipChange implements FriendshipChange {
 
 	private Animal subject;
-	private Set<DefaultFriendship> lostFriends;
-	private Set<DefaultFriendship> gainedFriends;
+	private Optional<DefaultFriendship> lostFriend;
+	private Optional<DefaultFriendship> gainedFriend;
 
-	public DefaultFriendshipChange(Animal subject, Set<DefaultFriendship> lostFriends, Set<DefaultFriendship> gainedFriends) {
+	public DefaultFriendshipChange(Animal subject, Optional<DefaultFriendship> lostFriend, Optional<DefaultFriendship> gainedFriend) {
 		this.subject = subject;
-		this.lostFriends = lostFriends;
-		this.gainedFriends = gainedFriends;
+		this.lostFriend = lostFriend;
+		this.gainedFriend = gainedFriend;
 	}
 
 	@Override
@@ -23,12 +23,12 @@ public class DefaultFriendshipChange implements FriendshipChange {
 	}
 
 	@Override
-	public Set<DefaultFriendship> getLostFriends() {
-		return lostFriends;
+	public Optional<DefaultFriendship> getLostFriend() {
+		return lostFriend;
 	}
 
 	@Override
-	public Set<DefaultFriendship> getGainedFriends() {
-		return gainedFriends;
+	public Optional<DefaultFriendship> getGainedFriend() {
+		return gainedFriend;
 	}
 }

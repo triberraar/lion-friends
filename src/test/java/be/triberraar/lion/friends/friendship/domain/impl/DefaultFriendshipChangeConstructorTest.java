@@ -2,8 +2,7 @@ package be.triberraar.lion.friends.friendship.domain.impl;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,10 +21,10 @@ public class DefaultFriendshipChangeConstructorTest {
 
 	@Test
 	public void constructsCorrectly() {
-		DefaultFriendshipChange result = new DefaultFriendshipChange(animal, new HashSet<>(Arrays.asList(friendship1)), new HashSet<>(Arrays.asList(friendship2)));
+		DefaultFriendshipChange result = new DefaultFriendshipChange(animal, Optional.of(friendship1), Optional.of(friendship2));
 
 		assertThat(result.getSubject()).isEqualTo(animal);
-		assertThat(result.getLostFriends()).isEqualTo(new HashSet<>(Arrays.asList(friendship1)));
-		assertThat(result.getGainedFriends()).isEqualTo(new HashSet<>(Arrays.asList(friendship2)));
+		assertThat(result.getLostFriend()).isEqualTo(Optional.of(friendship1));
+		assertThat(result.getGainedFriend()).isEqualTo(Optional.of(friendship2));
 	}
 }

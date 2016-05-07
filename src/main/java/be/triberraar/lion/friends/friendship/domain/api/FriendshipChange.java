@@ -1,7 +1,7 @@
 
 package be.triberraar.lion.friends.friendship.domain.api;
 
-import java.util.Set;
+import java.util.Optional;
 
 import javax.validation.constraints.NotNull;
 
@@ -13,10 +13,8 @@ public interface FriendshipChange {
 	@NotNull(message = "friendship.change.subject.null")
 	Animal getSubject();
 
-	@NotNull(message = "friendship.change.lost.friends.null")
-	Set<DefaultFriendship> getLostFriends();
+	Optional<DefaultFriendship> getLostFriend();
 
-	@NotNull(message = "friendship.change.gained.friends.null")
-	Set<DefaultFriendship> getGainedFriends();
+	Optional<DefaultFriendship> getGainedFriend();
 
 }
