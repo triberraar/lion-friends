@@ -1,0 +1,1 @@
+# lion-friends [![Travis build status](https://img.shields.io/travis/triberraar/lion-friends/develop.svg)](https://travis-ci.org/triberraar/lion-friends)
