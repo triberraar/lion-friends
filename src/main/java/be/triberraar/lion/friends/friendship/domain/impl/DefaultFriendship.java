@@ -2,6 +2,7 @@ package be.triberraar.lion.friends.friendship.domain.impl;
 
 import be.triberraar.lion.friends.animal.domain.api.Animal;
 import be.triberraar.lion.friends.friendship.domain.api.Friendship;
+import be.triberraar.lion.friends.friendship.domain.exception.InvalidFriendException;
 
 public class DefaultFriendship implements Friendship {
 
@@ -21,6 +22,16 @@ public class DefaultFriendship implements Friendship {
 	@Override
 	public Animal getFriend2() {
 		return friend2;
+	}
+
+	public Animal getFriendOf(Animal animal) {
+		if (friend1.equals(animal)) {
+			return friend2;
+		} else if (friend2.equals(animal)) {
+			return friend1;
+		} else {
+			throw new InvalidFriendException(animal, this);
+		}
 	}
 
 	@Override

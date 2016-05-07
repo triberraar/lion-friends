@@ -8,10 +8,10 @@ import be.triberraar.lion.friends.friendship.domain.api.FriendshipChange;
 public class DefaultFriendshipChange implements FriendshipChange {
 
 	private Animal subject;
-	private Optional<DefaultFriendship> lostFriend;
-	private Optional<DefaultFriendship> gainedFriend;
+	private Optional<Animal> lostFriend;
+	private Optional<Animal> gainedFriend;
 
-	public DefaultFriendshipChange(Animal subject, Optional<DefaultFriendship> lostFriend, Optional<DefaultFriendship> gainedFriend) {
+	public DefaultFriendshipChange(Animal subject, Optional<Animal> lostFriend, Optional<Animal> gainedFriend) {
 		this.subject = subject;
 		this.lostFriend = lostFriend;
 		this.gainedFriend = gainedFriend;
@@ -23,12 +23,12 @@ public class DefaultFriendshipChange implements FriendshipChange {
 	}
 
 	@Override
-	public Optional<DefaultFriendship> getLostFriend() {
+	public Optional<Animal> getLostFriend() {
 		return lostFriend;
 	}
 
 	@Override
-	public Optional<DefaultFriendship> getGainedFriend() {
+	public Optional<Animal> getGainedFriend() {
 		return gainedFriend;
 	}
 }

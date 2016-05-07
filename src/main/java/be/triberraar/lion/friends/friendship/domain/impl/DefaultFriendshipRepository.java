@@ -5,25 +5,24 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import be.triberraar.lion.friends.animal.domain.api.Animal;
-import be.triberraar.lion.friends.friendship.domain.api.Friendship;
 
 public class DefaultFriendshipRepository {
 
-	private Set<Friendship> friendships = new HashSet<>();
+	private Set<DefaultFriendship> friendships = new HashSet<>();
 
-	public Set<Friendship> getFriendOf(Animal animal) {
+	public Set<DefaultFriendship> getFriendsOf(Animal animal) {
 		return friendships.parallelStream().filter(friendship -> friendship.getFriend1().equals(animal) || friendship.getFriend2().equals(animal)).collect(Collectors.toSet());
 	}
 
-	public void addFriendship(Friendship friendship) {
+	public void addFriendship(DefaultFriendship friendship) {
 		friendships.add(friendship);
 	}
 
-	public void deleteFriendship(Friendship friendship) {
+	public void deleteFriendship(DefaultFriendship friendship) {
 		friendships.remove(friendship);
 	}
 
-	Set<Friendship> getAll() {
+	Set<DefaultFriendship> getAll() {
 		return friendships;
 	}
 

@@ -1,5 +1,7 @@
 package be.triberraar.lion.friends.animal.domain.impl;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -24,6 +26,7 @@ public class DefaultAnimalRepositoryAllTest {
 		defaultAnimalRepository.init();
 
 		Set<DefaultAnimal> allAnimals = defaultAnimalRepository.all();
+		assertThat(allAnimals).hasSize(7);
 		assertContains(allAnimals, "Dog one", AnimalType.DOG, "Meat", "Hunting dog");
 		assertContains(allAnimals, "Parrot one", AnimalType.PARROT, "Grain", "Wingspan 0.25", "Cannot speak");
 		assertContains(allAnimals, "Chicken one", AnimalType.CHICKEN, "CORN", "Wingspan 0.75", "Is broiler");
@@ -31,7 +34,6 @@ public class DefaultAnimalRepositoryAllTest {
 		assertContains(allAnimals, "Parrot two", AnimalType.PARROT, "CORN", "Wingspan 0.5", "Can speak");
 		assertContains(allAnimals, "Chicken two", AnimalType.CHICKEN, "Corn", "Wingspan 0.75", "Is not broiler");
 		assertContains(allAnimals, "Dog three", AnimalType.DOG, "Perdigree", "Racing dog");
-
 	}
 
 	private boolean assertContains(Set<DefaultAnimal> animals, String name, AnimalType animalType, String favoriteFood, String... metaData) {

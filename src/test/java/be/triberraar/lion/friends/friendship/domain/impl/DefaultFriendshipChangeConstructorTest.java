@@ -17,14 +17,14 @@ public class DefaultFriendshipChangeConstructorTest {
 	@Mock
 	private Animal animal;
 	@Mock
-	private DefaultFriendship friendship1, friendship2;
+	private Animal animal1, animal2;
 
 	@Test
 	public void constructsCorrectly() {
-		DefaultFriendshipChange result = new DefaultFriendshipChange(animal, Optional.of(friendship1), Optional.of(friendship2));
+		DefaultFriendshipChange result = new DefaultFriendshipChange(animal, Optional.of(animal1), Optional.of(animal2));
 
 		assertThat(result.getSubject()).isEqualTo(animal);
-		assertThat(result.getLostFriend()).isEqualTo(Optional.of(friendship1));
-		assertThat(result.getGainedFriend()).isEqualTo(Optional.of(friendship2));
+		assertThat(result.getLostFriend()).isEqualTo(Optional.of(animal1));
+		assertThat(result.getGainedFriend()).isEqualTo(Optional.of(animal2));
 	}
 }

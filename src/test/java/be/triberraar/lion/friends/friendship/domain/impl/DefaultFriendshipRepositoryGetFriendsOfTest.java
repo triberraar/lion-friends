@@ -10,7 +10,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import be.triberraar.lion.friends.animal.domain.api.Animal;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DefaultFriendshipRepositoryGetFriendOfTest {
+public class DefaultFriendshipRepositoryGetFriendsOfTest {
 
 	@Mock
 	private Animal animal1, animal2, animal3;
@@ -23,8 +23,8 @@ public class DefaultFriendshipRepositoryGetFriendOfTest {
 		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal3, animal1));
 		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal2, animal3));
 
-		assertThat(defaultFriendshipRepository.getFriendOf(animal1)).hasSize(2);
-		assertThat(defaultFriendshipRepository.getFriendOf(animal1)).contains(new DefaultFriendship(animal1, animal2), new DefaultFriendship(animal3, animal1));
+		assertThat(defaultFriendshipRepository.getFriendsOf(animal1)).hasSize(2);
+		assertThat(defaultFriendshipRepository.getFriendsOf(animal1)).contains(new DefaultFriendship(animal1, animal2), new DefaultFriendship(animal3, animal1));
 	}
 
 }

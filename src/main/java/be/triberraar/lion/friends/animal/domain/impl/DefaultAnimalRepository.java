@@ -9,11 +9,12 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import be.triberraar.lion.friends.animal.domain.api.AnimalRepository;
 import be.triberraar.lion.friends.animal.domain.api.AnimalType;
 import be.triberraar.lion.friends.animal.exception.AnimalNotFoundException;
 
 @Named
-public class DefaultAnimalRepository {
+public class DefaultAnimalRepository implements AnimalRepository {
 
 	private Map<String, DefaultAnimal> animals;
 
@@ -32,6 +33,7 @@ public class DefaultAnimalRepository {
 		animals.put("Chicken two", defaultAnimalFactory.create("Chicken two", AnimalType.CHICKEN, "Corn", "Wingspan 0.75", "Is not broiler"));
 	}
 
+	@Override
 	public Set<DefaultAnimal> all() {
 		return new HashSet<>(animals.values());
 	}
