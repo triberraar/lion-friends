@@ -3,8 +3,6 @@ jdk:
 notifications:
   email: false
 install:
-- npm install
-- pip install --user codecov
 script:
 - mvn verify
 after_success:
