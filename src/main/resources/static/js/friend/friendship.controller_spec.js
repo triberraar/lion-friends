@@ -5,7 +5,7 @@ describe('friendship.controller', function() {
     var ctrl, $controller;
 
     var friendshipRepositoryMock = {
-        live: function() {return {then: function(fn) {fn();}}},
+        live: function() {return {then: function(fn) {fn();}};},
         changes: [{id:1}]
     },animalRepositoryMock={
         animals : [{name: 'animal1'}, {name: 'animal2'}]
