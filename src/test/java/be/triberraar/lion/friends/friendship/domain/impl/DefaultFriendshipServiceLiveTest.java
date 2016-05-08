@@ -1,6 +1,8 @@
 package be.triberraar.lion.friends.friendship.domain.impl;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -11,6 +13,8 @@ import java.util.Optional;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -41,6 +45,10 @@ public class DefaultFriendshipServiceLiveTest {
 	private Animal animal1, animal2, gainedFriendAnimal1, lostFriendAnimal1;
 	@Mock
 	private DefaultFriendshipChange friendshipChange1, friendshipChange2;
+	@Mock
+	private DefaultFriendshipRepository defaultFriendshipRepository;
+	@Captor
+	private ArgumentCaptor<DefaultFriendship> gainedFriendshipCaptor, lostFriendshipCaptor;
 
 	@Before
 	public void setUp() {
@@ -67,5 +75,11 @@ public class DefaultFriendshipServiceLiveTest {
 
 		verify(defaultFriendshipChangeRepository).addFriendshipChange(CURRENT_DAY, friendshipChange1);
 		verify(defaultFriendshipChangeRepository).addFriendshipChange(CURRENT_DAY, friendshipChange2);
+		verify(defaultFriendshipRepository, times(1)).addFriendship(gainedFriendshipCaptor.capture());
+		assertThat(gainedFriendshipCaptor.getValue().getFriend1()).isEqualTo(animal1);
+		assertThat(gainedFriendshipCaptor.getValue().getFriend2()).isEqualTo(gainedFriendAnimal1);
+		verify(defaultFriendshipRepository, times(1)).deleteFriendship(lostFriendshipCaptor.capture());
+		assertThat(lostFriendshipCaptor.getValue().getFriend1()).isEqualTo(animal1);
+		assertThat(lostFriendshipCaptor.getValue().getFriend2()).isEqualTo(lostFriendAnimal1);
 	}
 }
