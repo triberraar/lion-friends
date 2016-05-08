@@ -7,7 +7,7 @@ Both the frontend and backend are also build on TravisCI (see .travis.yml) and h
 ### Requirements
 Node, maven should be installed. Chrome is optional but is used in the unit tests. The application is also only tested on chrome, but any evergreen browser should do.
 ### Frontend
-The frontend is javascript based and the build system is plain npm. There are 3 scripts for the build: install, lint(optional) and test_chrome(optional). To run the scripts us npm run <script>.
+The frontend is javascript based and the build system is plain npm. There are 3 scripts for the build: install, lint(optional) and test_chrome(optional). To run the scripts us npm run &lt;script&gt;.
 
 install: Will install all dependencies. It also installs a local copy of bower and then installs all the bower dependencies. This is all that is needed to build the frontend. See package.json and bower.json.
 
@@ -25,6 +25,6 @@ The application can both be run as a java application or a docker based applicat
 ### Java
 Simply run 'java -jar target/lion-friends-0.0.1-SNAPSHOT.jar'. This will startup the embedded tomcat container. The application is serverd at localhost:8080.
 ### Docker
-To run with docker, first build the image and then run 'docker run -p 8080:8080 lion-friends' (other port mappings are off course also valid). The applicaiton is then served on localhost:8080, unless a virutal machine is used (as on osX) then it is server on <virtual ip>:8080.
+To run with docker, first build the image and then run 'docker run -p 8080:8080 lion-friends' (other port mappings are off course also valid). The applicaiton is then served on localhost:8080, unless a virutal machine is used (as on osX) then it is server on &lt;virtual ip&gt;:8080.
 ## Backend [![Codecov test coverage](https://img.shields.io/codecov/c/github/triberraar/lion-friends/develop.svg)](https://codecov.io/github/triberraar/lion-friends?branch=develop)
 ## Frontend [![Coveralls test coverage](https://img.shields.io/coveralls/triberraar/lion-friends/develop.svg)](https://coveralls.io/github/triberraar/lion-friends?branch=develop)
