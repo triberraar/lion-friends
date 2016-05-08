@@ -32,7 +32,7 @@ public class DefaultFriendshipService implements FriendshipService {
 	private DefaultFriendshipRepository defaultFriendshipRepository;
 
 	@Override
-	public void live() {
+	public synchronized void live() {
 		dayRepository.advance();
 		int currentDay = dayRepository.getCurrentDay();
 		for (Animal animal : animalRepository.all()) {

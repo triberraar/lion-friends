@@ -15,7 +15,7 @@ public class DefaultFriendshipChangeRepository implements FriendshipChangeReposi
 
 	private Map<Integer, Set<DefaultFriendshipChange>> friendshipChanges = new HashMap<>();
 
-	public void addFriendshipChange(Integer day, DefaultFriendshipChange friendshipChange) {
+	public synchronized void addFriendshipChange(Integer day, DefaultFriendshipChange friendshipChange) {
 		if (!friendshipChanges.containsKey(day)) {
 			friendshipChanges.put(day, new HashSet<>());
 		}
@@ -23,7 +23,7 @@ public class DefaultFriendshipChangeRepository implements FriendshipChangeReposi
 	}
 
 	@Override
-	public Set<DefaultFriendshipChange> getByDay(Integer day) {
+	public synchronized Set<DefaultFriendshipChange> getByDay(Integer day) {
 		if (!friendshipChanges.containsKey(day)) {
 			throw new DayNotFoundException(day);
 		}

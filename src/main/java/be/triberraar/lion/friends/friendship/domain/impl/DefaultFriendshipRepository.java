@@ -20,15 +20,15 @@ public class DefaultFriendshipRepository implements FriendshipRepository {
 	private DayRepository dayRepository;
 
 	@Override
-	public Set<DefaultFriendship> getFriendsOf(Animal animal) {
+	public synchronized Set<DefaultFriendship> getFriendsOf(Animal animal) {
 		return friendships.parallelStream().filter(friendship -> isFriendOf(animal, friendship)).collect(Collectors.toSet());
 	}
 
-	public void addFriendship(DefaultFriendship friendship) {
+	public synchronized void addFriendship(DefaultFriendship friendship) {
 		friendships.add(friendship);
 	}
 
-	public void deleteFriendship(DefaultFriendship friendship) {
+	public synchronized void deleteFriendship(DefaultFriendship friendship) {
 		friendships.remove(friendship);
 	}
 
@@ -36,7 +36,7 @@ public class DefaultFriendshipRepository implements FriendshipRepository {
 		return friendships;
 	}
 
-	public Set<DefaultFriendship> getFriendsFromBeforeToday(Animal animal) {
+	public synchronized Set<DefaultFriendship> getFriendsFromBeforeToday(Animal animal) {
 		Integer currentDay = dayRepository.getCurrentDay();
 		return friendships.parallelStream().filter(friendship -> isFriendOf(animal, friendship) && !friendship.getEstablished().equals(currentDay)).collect(Collectors.toSet());
 	}
