@@ -7,12 +7,14 @@ import java.util.stream.Collectors;
 import javax.inject.Named;
 
 import be.triberraar.lion.friends.animal.domain.api.Animal;
+import be.triberraar.lion.friends.friendship.domain.api.FriendshipRepository;
 
 @Named
-public class DefaultFriendshipRepository {
+public class DefaultFriendshipRepository implements FriendshipRepository {
 
 	private Set<DefaultFriendship> friendships = new HashSet<>();
 
+	@Override
 	public Set<DefaultFriendship> getFriendsOf(Animal animal) {
 		return friendships.parallelStream().filter(friendship -> friendship.getFriend1().equals(animal) || friendship.getFriend2().equals(animal)).collect(Collectors.toSet());
 	}

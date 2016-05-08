@@ -24,6 +24,7 @@ public class DefaultFriendship implements Friendship {
 		return friend2;
 	}
 
+	@Override
 	public Animal getFriendOf(Animal animal) {
 		if (friend1.equals(animal)) {
 			return friend2;

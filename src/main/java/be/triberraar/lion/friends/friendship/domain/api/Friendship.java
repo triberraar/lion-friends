@@ -12,4 +12,6 @@ public interface Friendship {
 	@NotNull(message = "friendship.error.friend2.null")
 	Animal getFriend2();
 
+	Animal getFriendOf(Animal animal);
+
 }

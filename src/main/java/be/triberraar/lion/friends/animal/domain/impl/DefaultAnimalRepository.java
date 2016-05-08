@@ -38,6 +38,7 @@ public class DefaultAnimalRepository implements AnimalRepository {
 		return new HashSet<>(animals.values());
 	}
 
+	@Override
 	public DefaultAnimal getByName(String name) {
 		DefaultAnimal animal = animals.get(name);
 		if (animal == null) {
