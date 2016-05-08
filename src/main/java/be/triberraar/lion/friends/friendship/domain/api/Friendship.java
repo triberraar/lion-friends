@@ -14,4 +14,7 @@ public interface Friendship {
 
 	Animal getFriendOf(Animal animal);
 
+	@NotNull(message = "friendship.error.established.null")
+	Integer getEstablished();
+
 }

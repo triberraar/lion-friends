@@ -35,7 +35,7 @@ public class FriendsCalculator {
 	}
 
 	public Optional<Animal> calculateLostFriend(Animal animal) {
-		Set<DefaultFriendship> currentFriends = defaultFriendshipRepository.getFriendsOf(animal);
+		Set<DefaultFriendship> currentFriends = defaultFriendshipRepository.getFriendsFromBeforeToday(animal);
 		if (!currentFriends.isEmpty()) {
 			return Optional.of(currentFriends.iterator().next().getFriendOf(animal));
 		}

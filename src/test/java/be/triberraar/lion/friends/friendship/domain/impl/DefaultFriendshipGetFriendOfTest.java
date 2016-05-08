@@ -18,14 +18,14 @@ public class DefaultFriendshipGetFriendOfTest {
 
 	@Test
 	public void returnsFriend1IfNotAnimal() {
-		DefaultFriendship defaultFriendship = new DefaultFriendship(friend1, friend2);
+		DefaultFriendship defaultFriendship = new DefaultFriendship(friend1, friend2, 2);
 
 		assertThat(defaultFriendship.getFriendOf(friend2)).isEqualTo(friend1);
 	}
 
 	@Test
 	public void returnsFriend2IfNotAnimal() {
-		DefaultFriendship defaultFriendship = new DefaultFriendship(friend1, friend2);
+		DefaultFriendship defaultFriendship = new DefaultFriendship(friend1, friend2, 2);
 
 		assertThat(defaultFriendship.getFriendOf(friend1)).isEqualTo(friend2);
 
@@ -33,7 +33,7 @@ public class DefaultFriendshipGetFriendOfTest {
 
 	@Test(expected = InvalidFriendException.class)
 	public void failsWhenAnimalNotPartOfTheFriendship() {
-		DefaultFriendship defaultFriendship = new DefaultFriendship(friend1, friend2);
+		DefaultFriendship defaultFriendship = new DefaultFriendship(friend1, friend2, 2);
 
 		defaultFriendship.getFriendOf(friend3);
 	}

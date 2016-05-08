@@ -17,12 +17,12 @@ public class DefaultFriendshipEqualsTest {
 
 	@Test
 	public void equalWhenFriendsAreEqual() {
-		DefaultFriendship defaultFriendship1 = new DefaultFriendship(animal1, animal2);
-		DefaultFriendship defaultFriendship2 = new DefaultFriendship(animal1, animal2);
+		DefaultFriendship defaultFriendship1 = new DefaultFriendship(animal1, animal2, 2);
+		DefaultFriendship defaultFriendship2 = new DefaultFriendship(animal1, animal2, 3);
 
 		assertThat(defaultFriendship1).isEqualTo(defaultFriendship2);
 
-		defaultFriendship2 = new DefaultFriendship(animal2, animal1);
+		defaultFriendship2 = new DefaultFriendship(animal2, animal1, 4);
 
 		assertThat(defaultFriendship1).isEqualTo(defaultFriendship2);
 
@@ -30,16 +30,16 @@ public class DefaultFriendshipEqualsTest {
 
 	@Test
 	public void notEqualWhenFriend1Different() {
-		DefaultFriendship defaultFriendship1 = new DefaultFriendship(animal1, animal2);
-		DefaultFriendship defaultFriendship2 = new DefaultFriendship(animal3, animal2);
+		DefaultFriendship defaultFriendship1 = new DefaultFriendship(animal1, animal2, 2);
+		DefaultFriendship defaultFriendship2 = new DefaultFriendship(animal3, animal2, 3);
 
 		assertThat(defaultFriendship1).isNotEqualTo(defaultFriendship2);
 	}
 
 	@Test
 	public void notEqualWhenFriend2Different() {
-		DefaultFriendship defaultFriendship1 = new DefaultFriendship(animal1, animal2);
-		DefaultFriendship defaultFriendship2 = new DefaultFriendship(animal1, animal3);
+		DefaultFriendship defaultFriendship1 = new DefaultFriendship(animal1, animal2, 2);
+		DefaultFriendship defaultFriendship2 = new DefaultFriendship(animal1, animal3, 3);
 
 		assertThat(defaultFriendship1).isNotEqualTo(defaultFriendship2);
 	}

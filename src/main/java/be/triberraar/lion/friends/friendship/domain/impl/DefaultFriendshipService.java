@@ -41,10 +41,10 @@ public class DefaultFriendshipService implements FriendshipService {
 
 			defaultFriendshipChangeRepository.addFriendshipChange(currentDay, defaultFriendshipChangeFactory.create(animal, lostFriend, gainedFriend));
 			if (gainedFriend.isPresent()) {
-				defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal, gainedFriend.get()));
+				defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal, gainedFriend.get(), currentDay));
 			}
 			if (lostFriend.isPresent()) {
-				defaultFriendshipRepository.deleteFriendship(new DefaultFriendship(animal, lostFriend.get()));
+				defaultFriendshipRepository.deleteFriendship(new DefaultFriendship(animal, lostFriend.get(), currentDay));
 			}
 		}
 	}

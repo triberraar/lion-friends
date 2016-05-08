@@ -8,10 +8,12 @@ public class DefaultFriendship implements Friendship {
 
 	private Animal friend1;
 	private Animal friend2;
+	private Integer established;
 
-	public DefaultFriendship(Animal friend1, Animal friend2) {
+	public DefaultFriendship(Animal friend1, Animal friend2, Integer established) {
 		this.friend1 = friend1;
 		this.friend2 = friend2;
+		this.established = established;
 	}
 
 	@Override
@@ -22,6 +24,11 @@ public class DefaultFriendship implements Friendship {
 	@Override
 	public Animal getFriend2() {
 		return friend2;
+	}
+
+	@Override
+	public Integer getEstablished() {
+		return established;
 	}
 
 	@Override

@@ -7,8 +7,11 @@ import java.util.Set;
 
 import javax.inject.Named;
 
+import be.triberraar.lion.friends.friendship.domain.api.FriendshipChangeRepository;
+import be.triberraar.lion.friends.friendship.exception.DayNotFoundException;
+
 @Named
-public class DefaultFriendshipChangeRepository {
+public class DefaultFriendshipChangeRepository implements FriendshipChangeRepository {
 
 	private Map<Integer, Set<DefaultFriendshipChange>> friendshipChanges = new HashMap<>();
 
@@ -17,6 +20,14 @@ public class DefaultFriendshipChangeRepository {
 			friendshipChanges.put(day, new HashSet<>());
 		}
 		friendshipChanges.get(day).add(friendshipChange);
+	}
+
+	@Override
+	public Set<DefaultFriendshipChange> getByDay(Integer day) {
+		if (!friendshipChanges.containsKey(day)) {
+			throw new DayNotFoundException(day);
+		}
+		return friendshipChanges.get(day);
 	}
 
 	Map<Integer, Set<DefaultFriendshipChange>> getFriendshipChanges() {
