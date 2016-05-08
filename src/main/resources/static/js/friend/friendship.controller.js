@@ -8,7 +8,7 @@ angular.module('friendship.controller', ['friendship.repository', 'animal.reposi
             vm.graphOptions = {
                 chart: {
                     type: 'forceDirectedGraph',
-                    height: 450,
+                    height: 250,
                     width: (function(){ return nv.utils.windowSize().width - 450; })(),
                     margin:{top: 20, right: 20, bottom: 20, left: 20},
                     nodeExtras: function(node) {
