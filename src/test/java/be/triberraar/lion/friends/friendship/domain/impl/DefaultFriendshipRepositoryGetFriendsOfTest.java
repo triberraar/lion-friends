@@ -19,12 +19,12 @@ public class DefaultFriendshipRepositoryGetFriendsOfTest {
 
 	@Test
 	public void returnsAllFriendsOfPassedAnimal() {
-		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal1, animal2));
-		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal3, animal1));
-		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal2, animal3));
+		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal1, animal2, 2));
+		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal3, animal1, 3));
+		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal2, animal3, 4));
 
 		assertThat(defaultFriendshipRepository.getFriendsOf(animal1)).hasSize(2);
-		assertThat(defaultFriendshipRepository.getFriendsOf(animal1)).contains(new DefaultFriendship(animal1, animal2), new DefaultFriendship(animal3, animal1));
+		assertThat(defaultFriendshipRepository.getFriendsOf(animal1)).contains(new DefaultFriendship(animal1, animal2, 2), new DefaultFriendship(animal3, animal1, 3));
 	}
 
 }

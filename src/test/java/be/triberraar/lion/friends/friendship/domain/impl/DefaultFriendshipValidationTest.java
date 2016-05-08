@@ -20,7 +20,7 @@ public class DefaultFriendshipValidationTest extends AbstractValidationTest<Defa
 
 	@Test
 	public void failsWhenFriend1IsNull() {
-		DefaultFriendship friendship = new DefaultFriendship(null, animal);
+		DefaultFriendship friendship = new DefaultFriendship(null, animal, 2);
 
 		Set<ConstraintViolation<DefaultFriendship>> violations = validator.validate(friendship);
 		assertViolationsContains(violations, "friendship.error.friend1.null");
@@ -28,10 +28,18 @@ public class DefaultFriendshipValidationTest extends AbstractValidationTest<Defa
 
 	@Test
 	public void failsWhenFriend2IsNull() {
-		DefaultFriendship friendship = new DefaultFriendship(animal, null);
+		DefaultFriendship friendship = new DefaultFriendship(animal, null, 3);
 
 		Set<ConstraintViolation<DefaultFriendship>> violations = validator.validate(friendship);
 		assertViolationsContains(violations, "friendship.error.friend2.null");
+	}
+
+	@Test
+	public void failsWhenEstablishedIsNull() {
+		DefaultFriendship friendship = new DefaultFriendship(animal, animal, null);
+
+		Set<ConstraintViolation<DefaultFriendship>> violations = validator.validate(friendship);
+		assertViolationsContains(violations, "friendship.error.established.null");
 	}
 
 }

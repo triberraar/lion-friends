@@ -34,10 +34,11 @@ public class DefaultAnimalRepository implements AnimalRepository {
 	}
 
 	@Override
-	public Set<DefaultAnimal> all() {
+	public synchronized Set<DefaultAnimal> all() {
 		return new HashSet<>(animals.values());
 	}
 
+	@Override
 	public DefaultAnimal getByName(String name) {
 		DefaultAnimal animal = animals.get(name);
 		if (animal == null) {

@@ -12,14 +12,16 @@ import be.triberraar.lion.friends.animal.domain.api.Animal;
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultFriendshipConstructorTest {
 
+	private static final int ESTABLISHED = 2;
 	@Mock
 	private Animal animal1, animal2;
 
 	@Test
 	public void constructsCorrectly() {
-		DefaultFriendship result = new DefaultFriendship(animal1, animal2);
+		DefaultFriendship result = new DefaultFriendship(animal1, animal2, ESTABLISHED);
 
 		assertThat(result.getFriend1()).isEqualTo(animal1);
 		assertThat(result.getFriend2()).isEqualTo(animal2);
+		assertThat(result.getEstablished()).isEqualTo(ESTABLISHED);
 	}
 }

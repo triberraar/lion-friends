@@ -32,7 +32,7 @@ public class FriendsCalculatorCalculateGainedFriendTest {
 
 	@Before
 	public void setUp() {
-		currentFriendship = new DefaultFriendship(animal, currentFriend);
+		currentFriendship = new DefaultFriendship(animal, currentFriend, 2);
 		doReturn(new HashSet<>(Arrays.asList(animal, currentFriend, newFriend))).when(animalRepository).all();
 		doReturn(new HashSet<>(Arrays.asList(currentFriendship))).when(defaultFriendshipRepository).getFriendsOf(animal);
 	}

@@ -39,6 +39,7 @@ public class DefaultAnimal implements Animal {
 		this.metaData.add(metaData);
 	}
 
+	@Override
 	public Set<String> getMetaData() {
 		return metaData;
 	}

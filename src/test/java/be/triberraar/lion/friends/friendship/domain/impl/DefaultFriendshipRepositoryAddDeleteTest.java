@@ -21,12 +21,12 @@ public class DefaultFriendshipRepositoryAddDeleteTest {
 	public void addsAndRemovesFriendship() {
 		assertThat(defaultFriendshipRepository.getAll()).hasSize(0);
 
-		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal1, animal2));
+		defaultFriendshipRepository.addFriendship(new DefaultFriendship(animal1, animal2, 2));
 
 		assertThat(defaultFriendshipRepository.getAll()).hasSize(1);
-		assertThat(defaultFriendshipRepository.getAll()).contains(new DefaultFriendship(animal1, animal2));
+		assertThat(defaultFriendshipRepository.getAll()).contains(new DefaultFriendship(animal1, animal2, 3));
 
-		defaultFriendshipRepository.deleteFriendship(new DefaultFriendship(animal1, animal2));
+		defaultFriendshipRepository.deleteFriendship(new DefaultFriendship(animal1, animal2, 4));
 
 		assertThat(defaultFriendshipRepository.getAll()).hasSize(0);
 	}

@@ -21,14 +21,14 @@ public class FriendsCalculatorCalculateLostFriendTest {
 	@InjectMocks
 	private FriendsCalculator friendsCalculator;
 	@Mock
-	private Animal animal, currentFriend;
+	private Animal animal, yesterdaysFriend;
 	@Mock
 	private DefaultFriendshipRepository defaultFriendshipRepository;
-	private DefaultFriendship currentFriendship;
+	private DefaultFriendship yesterdaysFriendship;
 
 	@Test
 	public void returnsEmptyWhenFriendless() {
-		doReturn(new HashSet<>()).when(defaultFriendshipRepository).getFriendsOf(animal);
+		doReturn(new HashSet<>()).when(defaultFriendshipRepository).getFriendsFromBeforeToday(animal);
 
 		Optional<Animal> lostFriend = friendsCalculator.calculateLostFriend(animal);
 
@@ -37,11 +37,11 @@ public class FriendsCalculatorCalculateLostFriendTest {
 
 	@Test
 	public void returnsFriendWhenNotFriendless() {
-		currentFriendship = new DefaultFriendship(animal, currentFriend);
-		doReturn(new HashSet<>(Arrays.asList(currentFriendship))).when(defaultFriendshipRepository).getFriendsOf(animal);
+		yesterdaysFriendship = new DefaultFriendship(animal, yesterdaysFriend, 2);
+		doReturn(new HashSet<>(Arrays.asList(yesterdaysFriendship))).when(defaultFriendshipRepository).getFriendsFromBeforeToday(animal);
 
 		Optional<Animal> lostFriend = friendsCalculator.calculateLostFriend(animal);
 
-		assertThat(lostFriend).isPresent().hasValue(currentFriend);
+		assertThat(lostFriend).isPresent().hasValue(yesterdaysFriend);
 	}
 }

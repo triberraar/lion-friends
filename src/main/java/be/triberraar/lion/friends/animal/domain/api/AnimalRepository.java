@@ -5,4 +5,6 @@ import java.util.Set;
 public interface AnimalRepository {
 
 	Set<? extends Animal> all();
+
+	Animal getByName(String name);
 }
