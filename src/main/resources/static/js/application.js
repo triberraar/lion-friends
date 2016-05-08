@@ -10,9 +10,9 @@ var dependencies = [
 
 angular.module('lion-friends', dependencies)
     .config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/animals');
+        $urlRouterProvider.otherwise('/animal');
         $stateProvider.state('animal', {
-            url: '/friends',
+            url: '/animal',
             template: '<friendship></friendship><animals></animals>'
         });
 
