@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('animal.controller', ['animal.repository'])
-    .controller('AnimalController', function (AnimalRepository) {
+angular.module('animal.controller', ['animal.repository', 'friend.repository'])
+    .controller('AnimalController', function (AnimalRepository, FriendRepository) {
         var vm = this;
 
         var init = function () {
@@ -19,7 +19,11 @@ angular.module('animal.controller', ['animal.repository'])
         };
 
         vm.getFriends = function(animal) {
-            return AnimalRepository.getFriends(animal);
+            var friends = FriendRepository.getFriend(animal);
+            if(friends) {
+                return friends.join(', ');
+            }
+
         };
 
         init();

@@ -1,0 +1,15 @@
+<div>
+    <h3>Friendship</h3>
+    <div>
+        <div class="col-md-2"></div>
+        <button type="btn" class="btn btn-default" ng-click="friendshipCtrl.live()">Live</button>
+    </div>
+    <h4>Changes</h4>
+    <ul ng-repeat="change in friendshipCtrl.changes()">
+        <li>{{change.subject}}</li>
+        <ul>
+            <li>Lost: {{change.lostFriend}}</li>
+            <li>Gained: {{change.gainedFriend}}</li>
+        </ul>
+    </ul>
+</div>

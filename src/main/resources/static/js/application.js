@@ -5,16 +5,15 @@ var dependencies = [
     'ngMessages',
     'ngResource',
     'ngAnimate',
-    'animal.component'];
+    'animal.component',
+    'friendship.component'];
 
 angular.module('lion-friends', dependencies)
     .config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/friends');
-        $stateProvider.state('friends', {
+        $urlRouterProvider.otherwise('/animals');
+        $stateProvider.state('animal', {
             url: '/friends',
-            templateUrl: 'js/animal/animal.html',
-            controller: 'AnimalController',
-            controllerAs: 'animalCtrl'
+            template: '<friendship></friendship><animals></animals>'
         });
 
     });
