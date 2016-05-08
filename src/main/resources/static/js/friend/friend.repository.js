@@ -7,7 +7,7 @@ angular.module('friend.repository', [])
         var friends = {};
         FriendRepository.queryFriend = function(animal) {
             var name = animal.name;
-            $http.get('/friend', {params: {name: name}}).then(function(response) {
+            return $http.get('/friend', {params: {name: name}}).then(function(response) {
                 friends[name] = [];
                 angular.forEach(response.data, function(friend) {
                     friends[name].push(friend.name);

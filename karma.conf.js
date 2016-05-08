@@ -11,8 +11,12 @@ var libFiles = [
     'src/main/resources/static/lib/angular-messages/angular-messages.js',
     'src/main/resources/static/lib/lodash/lodash.js',
     'src/main/resources/static/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-    'src/main/resources/static/lib/angular-mocks/angular-mocks.js'
+    'src/main/resources/static/lib/angular-mocks/angular-mocks.js',
+    'src/main/resources/static/lib/d3/d3.js',
+    'src/main/resources/static/lib/nvd3/build/nv.d3.js',
+    'src/main/resources/static/lib/angular-nvd3/dist/angular-nvd3.js'
 ];
+
 
 var applicationFiles = [
     'src/main/resources/static/js/**/*.js'

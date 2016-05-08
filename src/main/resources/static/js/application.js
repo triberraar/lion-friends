@@ -5,6 +5,7 @@ var dependencies = [
     'ngMessages',
     'ngResource',
     'ngAnimate',
+    'nvd3',
     'animal.component',
     'friendship.component'];
 
