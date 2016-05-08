@@ -2,7 +2,9 @@ jdk:
 - oraclejdk8
 notifications:
   email: false
-install: 
+install:
+- npm install
+- pip install --user codecov
 script:
 - npm run lint
 - npm run test_phantomjs
