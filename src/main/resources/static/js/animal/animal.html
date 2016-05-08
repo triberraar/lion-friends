@@ -1,0 +1,23 @@
+<div>
+    <h3>Animals</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Favorite food</th>
+                <th>Metadata</th>
+                <th>Friends</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="animal in animalCtrl.animals()">
+                <td>{{animal.name}}</td>
+                <td>{{animal.type}}</td>
+                <td>{{animal.favoriteFood}}</td>
+                <td>{{animalCtrl.getMetadata(animal)}}</td>
+                <td>{{animalCtrl.getFriends(animal)}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

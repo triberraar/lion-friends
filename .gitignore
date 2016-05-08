@@ -2,3 +2,7 @@
 .classpath
 .project
 .settings
+node_modules
+npm-debug.log
+src/main/resources/static/lib
+coverage-frontend

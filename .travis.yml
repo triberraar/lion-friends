@@ -3,7 +3,14 @@ jdk:
 notifications:
   email: false
 install:
+- npm install
+- pip install --user codecov
 script:
+- npm run lint
+- npm run test_phantomjs
 - mvn verify
 after_success:
 - bash <(curl -s https://codecov.io/bash) -f ./target/site/jacoco-ut/jacoco.xml
+env:
+  global:
+    secure: PUZe2AvcIlwDuSiusP316NvmO5247ga1L3pap2lHxG8ukifdXzZNO3qkvBXKFXrUnW1Pizrc86A2aFA2aHabgEIyWslAFcTv7JsWSlQylZOggpXwiclrJNikrPIEy21I+yiF6EPo4PbHYpTi53NR21mmHrJMnrO8cB6Cq4Q39UD+cgNWdHonz2HC7YFpTXL6f4arIHLJM2WEsuex+E65GK9Yxt4GjBPsrIHGBR//lokwyayKPwDoWCnKVHptialat739OGohESfdusLm/DfY0EF7RUeO8H9dlf9PHzJAmxlhnjiFQ9WiBzQGj9UmKGVDX1Y0CVRsD/GlgJh5ehQQQ2jMtXbg1aLluxhyojN1ZF0dZe7bafdoeVrfWp5WzfWqmDQ8ntxp69BbJFA1BgWqYImC2AJ5/pE/fzB5e80cEGidt3xty2eVRxCpykDaRqGm+YjMh08/TnGSHxYicQaUTKzV3NotCSbTOod5uO+BQ4GJCPpHujb3G0S7o0vRm0B+llCz1lNIJHh6Oiymx1hp+VTA15Kp6wcu0HOaFz3kaClub6UHxMKP9C0mkAJEN7CXp6uzuVO1UYXBvnk0HxWr90yrylMA3CAWYXpJxOKSapJPWKpEeZEK5RpRfvn+NRobVEMyMDre8jOVcRgUit7iinBJTn+H84KcrFEWsLrLZW0=
